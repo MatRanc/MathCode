@@ -12,6 +12,7 @@
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         
+        printf("Right Bisector Calculator v0.0.1\nPlease input your coordinates\n");
         
         //grab all the coordinates
         float x1input;
@@ -88,20 +89,49 @@ int main(int argc, const char * argv[]) {
         
         
         //print stuff
-        printf("Midpoint X = %0.2f, Midpoint Y = %0.2f\n", midpointX, midpointY);
+        printf("\nMidpoint X = %0.2f, Midpoint Y = %0.2f\n\n", midpointX, midpointY);
         printf("The slope of the line is %0.2f\n", slopeAll);
-        printf("The negative reciprocal of the line is %0.2f\n\n", slopeReciprocal);
+        printf("The negative reciprocal of the line is %0.2f\n", slopeReciprocal);
         
         
         
         //Prints final answer also if its negative dont include an addition sign
         if (b < 0) {
-            printf("The slope of the right bisector is y = %0.2fx %0.2f\n", slopeReciprocal, b);
+            printf("The slope of the right bisector is y = %0.2fx %0.2f\n\n", slopeReciprocal, b);
         }
         else {
-            printf("The slope of the right bisector is y = %0.2fx + %0.2f\n", slopeReciprocal, b);
+            printf("The slope of the right bisector is y = %0.2fx + %0.2f\n\n", slopeReciprocal, b);
         }
         
+        
+        //origSlope + origB = slopeReciprocal + b
+        
+        
+        double origSlope = slopeAll;
+        
+        double newSlope;
+        double newB;
+        
+                //Makes sure not to accidentally get a negitive number if its not the real one
+                if (origSlope < slopeReciprocal) {
+                    newSlope = slopeReciprocal - origSlope;
+                }
+                else {
+                    newSlope = origSlope - slopeReciprocal;
+                }
+        
+                    //Makes sure not to accidentally get a negitive number if its not the real one
+                if (origB < b){
+                    newB = b - origB;
+                }
+                else {
+                    newB = origB - b;
+                }
+        
+        //intercepts!
+        double intX = newB / newSlope;
+        double intY = (origSlope * intX) + origB;
+        printf("X Intercept = %0.2f\nY Intercept = %0.2f\n\n", intX, intY);
         
                 //Code for asking if original slope is wanted to be shown
                 //values for asking if orig slope is wanted
@@ -117,7 +147,7 @@ int main(int argc, const char * argv[]) {
                     //Prints original slope also if its negative dont include an addition sign
                     if (b < 0) {
                         
-                        printf("The original slope is y = %0.2fx %0.2f\n", slopeAll, origB);
+                        printf("The original slope is y = %0.2fx + %0.2f\n", slopeAll, origB);
                     }
                     else {
                         printf("The original slope is y = %0.2fx + %0.2f\n", slopeAll, origB);
