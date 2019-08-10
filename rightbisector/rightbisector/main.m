@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import <Accelerate/Accelerate.h>
-#include <readline/readline.h>
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
