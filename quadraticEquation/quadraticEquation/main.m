@@ -13,9 +13,9 @@ int main(int argc, const char * argv[]) {
     @autoreleasepool {
 
         //Input values
-        double in_a = 5;     //5
-        double in_b = -4;     //-4
-        double in_c = -12;     //-212
+        double in_a = 5;     //A
+        double in_b = -4;     //B
+        double in_c = -12;     //C
         
         //Get negative of B
         double neg_b = in_b * (-1);
